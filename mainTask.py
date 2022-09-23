@@ -5,5 +5,5 @@ zakupy= {
     "warzywniak": ['marchew', 'seler', 'rukola']
 }
 for sklep, rzeczy in zakupy.items():    
-    print("Idę do",sklep,", kupuję tu następujące rzeczy: ", rzeczy,".")
+    print("Idę do",sklep.capitalize(),", kupuję tu następujące rzeczy: ", [rzecz.capitalize() for rzecz in rzeczy],".")
 
