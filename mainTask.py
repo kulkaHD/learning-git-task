@@ -7,3 +7,8 @@ zakupy= {
 for sklep, rzeczy in zakupy.items():    
     print("Idę do",sklep.capitalize(),", kupuję tu następujące rzeczy: ", [rzecz.capitalize() for rzecz in rzeczy],".")
 
+ilosc = 0
+for sklep in zakupy.items():
+    ilosc+=len(rzeczy)
+
+print("W sumie kupuję ", ilosc, "produktów.")
