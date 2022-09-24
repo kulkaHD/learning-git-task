@@ -12,3 +12,5 @@ for sklep in zakupy.items():
     ilosc+=len(rzeczy)
 
 print("W sumie kupuję ", ilosc, "produktów.")
+#pierwszy commit
+
