@@ -13,4 +13,4 @@ for sklep in zakupy.items():
 
 print("W sumie kupuję ", ilosc, "produktów.")
 #pierwszy commit
-
+#drugi commit, jakże zaskakujący
