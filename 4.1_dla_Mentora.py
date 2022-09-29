@@ -1,14 +1,12 @@
-def czy_palindrom(word):
+def is_palindrome(text):
     """
     Returns True/False if an argument is/is not a palindrome.
     Argument:
-    word (string)
+    text (string)
     """
-    for i in range (len(word)):
-        if word[i]==word[-(i+1)]:
-            x = True  
-        else:
-            x = False
-            break
-    return x
-print(czy_palindrom("coroc"))
+
+    text= ''.join(filter(str.isalnum, text))
+    return text.lower() == text[::-1].lower()
+  
+
+print(is_palindrome("KoByła ma,mały! bok"))
