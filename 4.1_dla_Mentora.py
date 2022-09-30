@@ -6,7 +6,8 @@ def is_palindrome(text):
     """
 
     text= ''.join(filter(str.isalnum, text))
-    return text.lower() == text[::-1].lower()
+    text = text.lower()
+    return text == text[::-1]
   
 
 print(is_palindrome("KoByła ma,mały! bok"))
