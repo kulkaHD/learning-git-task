@@ -5,8 +5,7 @@ def is_palindrome(text):
     text (string)
     """
 
-    text= ''.join(filter(str.isalnum, text))
-    text = text.lower()
+    text= ''.join(filter(str.isalnum, text.lower()))
     return text == text[::-1]
   
 
