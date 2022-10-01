@@ -1,3 +1,6 @@
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 from typing import Tuple
 def get_data() -> Tuple[str, int, int]:
     op = input('''Podaj numer operacji:
@@ -12,32 +15,31 @@ def get_data() -> Tuple[str, int, int]:
     2 (odejmowanie)
     3 (mnożenie)
     4 (dzielenie) ''')
-
+    
     a = int(input("a = "))
     b = int(input("b = "))
   
     return op, a, b
-# print(get_data())
 
 
 def add(a: int, b: int) -> int:
+    logging.info("Wybrałeś dodawanie.")
     return a + b
 
-def sub(a, b) -> int:
+def sub(a: int, b: int) -> int:
+    logging.info("Wybrałeś odejmowanie.")
     return a - b
 
-def mult(a,b) -> int:
-    return a*b
+def mult(a: int,b: int) -> int:
+    logging.info("Wybrałeś mnożenie.")
+    return a * b
 
-def div(a,b) -> float:
+def div(a: int,b: int) -> float:
+    logging.info("Wybrałeś dzielenie.")
     while b==0:
-        print("Nie można dzielić przez 0. Proszę wybrać inną liczbę.")
+        logging.warning("Nie można dzielić przez 0. Proszę wybrać inną liczbę.")
         b = int(input("b = "))
-    return a/b
-
-
-
-# print(div(a,b))
+    return ("%.2f" % (a/b))
 
 operations = {
     "1": add,
@@ -45,15 +47,12 @@ operations = {
     "3": mult,
     "4": div
 }
-
-
 def main():
     operation, a, b = get_data()
     result = operations[operation](a, b)
+    print ("wynik to: ", result)
+    if __name__ == "__main__":
+        print ("Jaki fajny kalkulator,ciekawe,czy ktos w innym programie go będzie uzywał?")
     return result
 
-print(main())
-
-
-# if __name__ == "__main__":
-#     main()
+main()
