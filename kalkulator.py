@@ -144,8 +144,8 @@ def main() -> float:
     operation, a, b = get_data()
     result = operations[operation](a, b)
     print ("wynik to: ", "%.2f" % result)
-    # if __name__ == "__main__":
-    #     print ("Jaki fajny kalkulator,ciekawe,czy ktos w innym programie go będzie uzywał?")
+    if __name__ == "__main__":
+        print ("Jaki fajny kalkulator,ciekawe,czy ktos w innym programie go będzie uzywał?")
     return result
 
 main()
