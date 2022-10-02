@@ -66,8 +66,8 @@ def get_data() -> Tuple[str, float, float]:
 def add(a: float, b: float) -> float:
     more_numbers = (input("Czy chcesz dodać więcej liczb niż wpisane do tej pory? Wpisz, proszę, tak lub nie: "))
     while more_numbers.lower() != "tak" and  more_numbers.lower() != "nie":
-            logging.info("Błędna odpowiedź. Poproszę o odpowiedź tak lub nie.")
-            more_numbers = (input("Czy chcesz dodać więcej liczb niż wpisane do tej pory? Wpisz, proszę, tak lub nie: "))
+        logging.info("Błędna odpowiedź. Poproszę o odpowiedź tak lub nie.")
+        more_numbers = (input("Czy chcesz dodać więcej liczb niż wpisane do tej pory? Wpisz, proszę, tak lub nie: "))
     if more_numbers.lower() == "tak":
         how_many_more = (input("Ile argumentów chcesz dodać? "))
         while check_user_input_int(how_many_more) == False:
@@ -95,8 +95,8 @@ def sub(a: float, b: float) -> float:
 def mult(a: float, b: float) -> float:
     more_numbers = (input("Czy chcesz przemnożyć więcej liczb niż wpisałeś do tej pory? Wpisz, proszę, tak lub nie: "))
     while more_numbers.lower() != "tak" and  more_numbers.lower() != "nie":
-            logging.info("Błędna odpowiedź. Poproszę o odpowiedź tak lub nie.")
-            more_numbers = (input("Czy chcesz dodać więcej liczb niż wpisane do tej pory? Wpisz, proszę, tak lub nie: "))
+        logging.info("Błędna odpowiedź. Poproszę o odpowiedź tak lub nie.")
+        more_numbers = (input("Czy chcesz dodać więcej liczb niż wpisane do tej pory? Wpisz, proszę, tak lub nie: "))
     if more_numbers.lower() == "tak":
         how_many_more = (input("Ile argumentów chcesz dodać? "))
         while check_user_input_int(how_many_more) == False:
@@ -112,7 +112,7 @@ def mult(a: float, b: float) -> float:
             x = float(x)
             all_numbers.append (x)
         all_numbers = [3,4]
-        result = a*b
+        result = a * b
         for i in range(len(all_numbers)):
             result *= all_numbers[i]
         return result
@@ -131,7 +131,7 @@ def div(a: float, b: float) -> float:
             logging.info("Nie wpisałeś liczby. Wpisz liczbę.")
             b = input("b = ")
         b = float(b)
-    return ("%.2f" % (a/b))
+    return a / b
 
 operations = {
     "1": add,
@@ -139,10 +139,11 @@ operations = {
     "3": mult,
     "4": div
 }
-def main():
+
+def main() -> float:
     operation, a, b = get_data()
     result = operations[operation](a, b)
-    print ("wynik to: ", result)
+    print ("wynik to: ", "%.2f" % result)
     # if __name__ == "__main__":
     #     print ("Jaki fajny kalkulator,ciekawe,czy ktos w innym programie go będzie uzywał?")
     return result
