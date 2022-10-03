@@ -94,7 +94,6 @@ def mult(a: list, b: float) -> float:
         b *=i     
     return b
 
-
 def div(a: float, b: float) -> float:
     return a / b
 
