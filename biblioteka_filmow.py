@@ -275,21 +275,6 @@ if __name__ == "__main__":
 
         Hani.create_seasons (title, release, genre,season,how_many_episodes)
 
-        # for i in Hani.lista:
-        #     print(i)
-
-
-
-         
-        
-
-        
-        # Hani.generate_views_10x()
-        
-        # print("Biblioteka filmow")
-        # Hani.top_titles("series",3)
-        # Hani.search("The Office")
-
     main()    
 
 
