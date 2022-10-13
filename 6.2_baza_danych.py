@@ -205,3 +205,4 @@ if __name__ == "__main__":
     delete_where(conn, "chorzysci", id=3)
     delete_all(conn, "chorzysci")
     delete_all(conn, "glosy")
+    conn.close()
