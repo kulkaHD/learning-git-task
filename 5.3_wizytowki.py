@@ -32,8 +32,7 @@ class BusinessContact (BaseContact):
     @property
     def contact_phone(self):
         return self.work_num
-    def contact (self):
-        print (f"Wybieram numer {self.contact_phone} i dzwonię do {self.name} {self.last_name}")
+
 
 
 def create_contacts(create_card,x):
@@ -48,7 +47,7 @@ cardPriv = create_contacts("priv", 3)
 cardBiz = create_contacts("biz", 3)
 
 
-print (cardPriv[0])
+print (cardPriv)
 BaseContact.contact(cardPriv[0])
 BusinessContact.contact(cardBiz[0])
 print(cardBiz[0])
