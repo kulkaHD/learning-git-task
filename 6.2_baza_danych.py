@@ -3,11 +3,7 @@ from sqlite3 import Error
 
 
 def create_connection(db_file):
-    """ create a database connection to the SQLite database
-    specified by db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
+
     conn = None
     try:
         conn = sqlite3.connect(db_file)
@@ -17,7 +13,7 @@ def create_connection(db_file):
     return conn
 
 def create_connection_in_memory():
-    """ create a database connection to a SQLite database """
+
     conn = None
     try:
         conn = sqlite3.connect(":memory:")
@@ -29,11 +25,7 @@ def create_connection_in_memory():
             conn.close()
 
 def execute_sql(conn, sql):
-    """ Execute sql
-    :param conn: Connection object
-    :param sql: a SQL script
-    :return:
-    """
+
     try:
         c = conn.cursor()
         c.execute(sql)
@@ -42,12 +34,7 @@ def execute_sql(conn, sql):
 
 
 def add_glos(conn, glos):
-    """
-    Create a new glos into the glosy table
-    :param conn:
-    :param glos:
-    :return: glos id
-    """
+
     sql = '''INSERT INTO glosy(partia, liczba_osob, sposob_wykonania)
              VALUES(?,?,?)'''
     cur = conn.cursor()
@@ -56,12 +43,7 @@ def add_glos(conn, glos):
     return cur.lastrowid
 
 def add_chorzysta(conn, chorzysta):
-    """
-    Create a new chorzysta into the chorzysci table
-    :param conn:
-    :param chorzysta:
-    :return: chorzysta id
-    """
+
     sql = '''INSERT INTO chorzysci(glos_id, imie, znajomosc_nut, czy_ma_spiewnik)
              VALUES(?,?,?,?)'''
     cur = conn.cursor()
@@ -70,13 +52,7 @@ def add_chorzysta(conn, chorzysta):
     return cur.lastrowid
 
 def update(conn, table, id, **kwargs):
-    """
-    update status, begin_date, and end date of a task
-    :param conn:
-    :param table: table name
-    :param id: row id
-    :return:
-    """
+
     parameters = [f"{k} = ?" for k in kwargs]
     parameters = ", ".join(parameters)
     values = tuple(v for v in kwargs.values())
@@ -94,13 +70,7 @@ def update(conn, table, id, **kwargs):
         print(e)
 
 def delete_where(conn, table, **kwargs):
-    """
-    Delete from table where attributes from
-    :param conn:  Connection to the SQLite database
-    :param table: table name
-    :param kwargs: dict of attributes and values
-    :return:
-    """
+
     qs = []
     values = tuple()
     for k, v in kwargs.items():
@@ -115,12 +85,7 @@ def delete_where(conn, table, **kwargs):
     print("Deleted")
 
 def delete_all(conn, table):
-    """
-    Delete all rows from table
-    :param conn: Connection to the SQLite database
-    :param table: table name
-    :return:
-    """
+
     sql = f'DELETE FROM {table}'
     cur = conn.cursor()
     cur.execute(sql)
@@ -203,6 +168,6 @@ if __name__ == "__main__":
     update(conn, "chorzysci", 2, czy_ma_spiewnik ="tak")
 
     delete_where(conn, "chorzysci", id=3)
-    delete_all(conn, "chorzysci")
-    delete_all(conn, "glosy")
+    # delete_all(conn, "chorzysci")
+    # delete_all(conn, "glosy")
     conn.close()
