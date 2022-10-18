@@ -67,9 +67,9 @@ with open('clean_measure.csv', newline='') as csvfile:
 meta.create_all(engine)
 
 conn = engine.connect()
-# conn.execute(insCS,data_clean_stations)
-# conn.execute(insCM,data_clean_measure)
-# conn.execute(insSTATIONS,all_data)
+conn.execute(insCS,data_clean_stations)
+conn.execute(insCM,data_clean_measure)
+conn.execute(insSTATIONS,all_data)
 
 print (f'''
 
