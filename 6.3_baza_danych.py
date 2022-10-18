@@ -53,15 +53,15 @@ all_data = []
 with open('clean_stations.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for rowCS in reader:
-        data_clean_stations.append(dict(rowCS))
-        dict_clean_stations[rowCS["station"]] = dict(rowCS)
+        data_clean_stations.append(rowCS)
+        dict_clean_stations[rowCS["station"]] = rowCS
 
 with open('clean_measure.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for rowCM in reader:
-        row_data = dict(rowCM)
+        row_data = rowCM
         row_data.update(dict_clean_stations[rowCM["station"]])
-        data_clean_measure.append(dict(rowCM))
+        data_clean_measure.append(rowCM)
         all_data.append(row_data)
 
 meta.create_all(engine)
@@ -82,6 +82,5 @@ Daje następujące wyniki:
 
 for i in conn.execute("SELECT * FROM clean_stations LIMIT 5").fetchall():
     print (i)
-
 
 conn.close()
